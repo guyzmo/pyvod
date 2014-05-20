@@ -58,7 +58,7 @@ class VodServiceShow(OnlineService):
         raise NotImplementedError
 
     def keys(self):
-        return filter(lambda x: not x.startswith('_') and not x.endswith('_'), self.data.keys())
+        return list(filter(lambda x: not x.startswith('_') and not x.endswith('_'), self.data.keys()))
 
     def items(self):
         return self.data.items()

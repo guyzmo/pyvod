@@ -4,7 +4,7 @@ import sys
 import time
 import textwrap
 
-from .vodservice import VodService
+from vod.vodservice import VodService
 
 def get_term_size():
     import os
@@ -41,8 +41,8 @@ def run(Search=VodService, doc=__doc__):
         args = docopt(doc)
         if args['gui']:
             try:
-                import vodservice.guiqt
-                vodservice.guiqt.main(args, Search)
+                import vod.ui.qt
+                vod.ui.qt.main(args, Search)
             except ImportError:
                 raise Exception(_("Couldn't load Qt libraries. Impossible to run the GUI, sorry."))
         elif args['fetch']:
@@ -118,7 +118,7 @@ def run(Search=VodService, doc=__doc__):
                         print("{_id_:>12} -- {_title_:<40} {_image_}".format(**mm))
                 else:
                     for mm in s.list(**list_args):
-                        print("{_id_:>12} -- {_title_:<40}".format(**mm))
+                        print("{_id_:>12} -- {_title_:<40}".format(**mm.data))
 
     except Exception as err:
         print("", file=sys.stderr)

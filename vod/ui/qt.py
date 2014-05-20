@@ -51,7 +51,7 @@ document.getElementById("back").onclick = function() {
 """
 
 class QVideoView(QtWebKitWidgets.QWebView):
-    css_head = hb.LINK(rel="stylesheet", href='file://{}'.format(os.path.join(os.path.dirname(__file__),"resources","pyvodservice.css")), type="text/css")
+    css_head = hb.LINK(rel="stylesheet", href='file://{}'.format(os.path.join(os.path.dirname(__file__),"..","resources","pyvodservice.css")), type="text/css")
     def __init__(self, *args, Search, verbose=False):
         super(QVideoView, self).__init__(*args)
         self.page().mainFrame().javaScriptWindowObjectCleared.connect(self.handle_slots)

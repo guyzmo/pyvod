@@ -22,7 +22,7 @@ long_description = """
 
 """.format(**read('README.md'))
 
-setup(name='pyvodservice',
+setup(name='pyvod',
       version='1.0',
       description="Pluzz TV Show Downloader",
       long_description=long_description,
@@ -36,10 +36,10 @@ setup(name='pyvodservice',
       author_email='pyvodservice@m0g.net',
       url='http://m0g.net',
       license='GPLv3',
-      packages=['vodservice'],
+      packages=['vod'],
       zip_safe=False,
       install_requires=[
-          'pycplus',
+          'pyvod',
           'docopt',
           'lxml',
           'PyQtX',
